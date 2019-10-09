@@ -9,3 +9,6 @@ class CreateDiningSpots < ActiveRecord::Migration
     end
   end
 end
+
+
+#stretch goals: dining_spot type #=> dive bar, cocktail, hi_dining, food_cart
