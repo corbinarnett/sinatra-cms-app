@@ -15,12 +15,31 @@ class UsersController < ApplicationController #allows the use of methods used in
     end
   end
 
-  get '/signup' do
-
+  get '/signup' do #RENDER SIGNUP FORM
+    erb :signup
   end
 
-  get '/users/:id' do #user SHOW 
-    "show user page"
+  post '/users' do
+
+    if params[:name] != "" && params[:email] != "" && params[:password] != ""
+      @user = User.create(params)
+      session[:user_id] = @user.id
+
+      redirect "/users/#{@user.id}"
+      else
+        #need message telling the user what is wrong
+        redirect '/signup'
+    end
+  end
+
+  get '/users/:id' do #RENDER USER SHOW PAGE
+    @user = User.find_by(id: params[:id])
+    erb :"/users/show"
+  end
+
+  get 'logout' do 
+    session.clear
+    redirect '/'
   end
 
 end
