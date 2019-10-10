@@ -8,7 +8,7 @@ class UsersController < ApplicationController #allows the use of methods used in
     @user = User.find_by(email: params[:email]) #find_by expects a key, value pair
 
     if @user.authenticate(params[:password])
-      session[:user_id] = @user.id #logs user in
+      session[:user_id] = @user.id #created :user_id, logs user in
       redirect "users/#{@user.id}"
     else
 
