@@ -11,7 +11,7 @@ class UsersController < ApplicationController #allows the use of methods used in
       session[:user_id] = @user.id #created :user_id, logs user in
       redirect "users/#{@user.id}"
     else
-
+      ##########################
     end
   end
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController #allows the use of methods used in
     erb :"/users/show"
   end
 
-  get 'logout' do 
+  get '/logout' do 
     session.clear
     redirect '/'
   end
