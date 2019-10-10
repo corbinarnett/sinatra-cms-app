@@ -6,11 +6,11 @@
 
 #create dining_spots
 
-10.times do 
+3.times do 
   DiningSpot.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, website: Faker::Internet.url, user_id: user_1.id)
 end
 
-10.times do 
+3.times do 
   DiningSpot.create(name: Faker::Restaurant.name, address: Faker::Address.street_address, website: Faker::Internet.url, user_id: user_2.id)
 end
 
