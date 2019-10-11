@@ -1,1 +1,13 @@
-edit form goes here
+<h2>Edit a destination:</h2>
+
+<form action="/dining_spots/<%= @dining_spot.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="" value="<%= @dining_spot.name %>">
+  <label for="address">Address</label>
+  <input type="text" name="address" id="" value="<%= @dining_spot.address %>">
+  <label for="website">Website:</label>
+  <input type="text" name="website" id="" value="<%= @dining_spot.website %>">
+
+  <input type="submit" value="Edit">
+</form>
