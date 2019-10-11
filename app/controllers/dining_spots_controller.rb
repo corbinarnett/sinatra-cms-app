@@ -25,12 +25,29 @@ class DiningSpotsController < ApplicationController
   get '/dining_spots/:id/edit' do
     # raise params.inspect
     set_dining_spot
-    erb :"/dining_spots/edit"
+    if logged_in?
+      if @dining_spot.user == current_user
+        erb :"/dining_spots/edit"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
 
   patch '/dining_spots/:id' do
     set_dining_spot
-    "Hello World"
+    if logged_in?
+      if @dining_spot.user == current_user
+        @dining_spot.update(name: params[:name], address: params[:address], website: params[:website])
+        redirect "/dining_spots/#{@dining_spot.id}"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
 
 
