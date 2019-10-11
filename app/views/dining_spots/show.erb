@@ -1,1 +1,9 @@
 SHOW PAGE FOR DINING_SPOTS
+
+<div>
+  <h2><%= @dining_spot.name %></h2>
+  <p><%= @dining_spot.address %></p>
+  <p><%= @dining_spot.website %></p>
+</div>
+
+<a href="/dining_spots/<%= @dining_spot.id %>/edit">Edit Dining Spot</a>
