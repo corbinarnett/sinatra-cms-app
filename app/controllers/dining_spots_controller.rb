@@ -17,5 +17,15 @@ class DiningSpotsController < ApplicationController
     end
   end
 
+  get '/dining_spots/:id' do 
+    @dining_spot = DiningSpot.find_by(id: params[:id])
+    erb :"/dining_spots/show"  #redirects destroy instance variables
+  end
 
+  get '/dining_spots/:id/edit' do
+    "Hello World"
+
+    erb :"/dining_spots/edit"
+  end
+  
 end
