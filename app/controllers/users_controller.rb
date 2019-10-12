@@ -1,5 +1,6 @@
 class UsersController < ApplicationController #allows the use of methods used in application controller
   
+ 
   get '/login' do #RENDER LOGIN FORM
     erb :login
   end
@@ -12,7 +13,7 @@ class UsersController < ApplicationController #allows the use of methods used in
       # binding.pry
       redirect "users/#{@user.id}"
     else
-      ##########################
+      redirect "/"
     end
   end
 
@@ -37,6 +38,7 @@ class UsersController < ApplicationController #allows the use of methods used in
     @user = User.find_by(id: params[:id])
     erb :"/users/show"
   end
+
 
   get '/logout' do 
     session.clear
