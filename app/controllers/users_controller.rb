@@ -9,6 +9,7 @@ class UsersController < ApplicationController #allows the use of methods used in
 
     if @user.authenticate(params[:password])
       session[:user_id] = @user.id #created :user_id, logs user in
+      # binding.pry
       redirect "users/#{@user.id}"
     else
       ##########################

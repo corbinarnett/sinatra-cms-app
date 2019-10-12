@@ -1,1 +1,11 @@
 INDEX PAGE FOR DINING_SPOTS
+
+<% @dining_spots.each do |dining_spot| %>
+  <ul>
+    <li><h6> <a href="/dining_spots/<%= dining_spot.id %>"><%= dining_spot.name %></a> </h6></li>
+    <li><%= dining_spot.address %></li>
+    <li><a href="<%= dining_spot.website %>"><%= dining_spot.website %></a></li>
+    <p> Added by: <%= dining_spot.user.name %> </p>
+  </ul>
+    <br>
+  <% end %>
