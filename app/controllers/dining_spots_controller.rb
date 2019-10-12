@@ -55,6 +55,16 @@ class DiningSpotsController < ApplicationController
     end
   end
 
+  delete '/dining_spots/:id' do 
+    set_dining_spot
+    if current_user == @dining_spot.user
+      @dining_spot.destroy
+      redirect "/dining_spots"
+    else
+      redirect "/dining_spots"
+    end
+  end
+
 
 
 

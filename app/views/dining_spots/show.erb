@@ -6,4 +6,14 @@ SHOW PAGE FOR DINING_SPOTS
   <p><%= @dining_spot.website %></p>
 </div>
 
-<a href="/dining_spots/<%= @dining_spot.id %>/edit">Edit Dining Spot</a>
+<!-- edit link -->
+<% if current_user == @dining_spot.user %>
+<a href="/dining_spots/<%= @dining_spot.id %>/edit">Edit</a>
+
+<!-- delete link -->
+<br><br>
+<form action="/dining_spots/<%= @dining_spot.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="" value="Delete">
+</form>
+<% end %>
