@@ -1,4 +1,4 @@
-SHOW PAGE FOR DINING_SPOTS
+<!-- SHOW PAGE FOR DINING_SPOTS -->
 
 <div>
   <h2><%= @dining_spot.name %></h2>
@@ -11,9 +11,9 @@ SHOW PAGE FOR DINING_SPOTS
 <a href="/dining_spots/<%= @dining_spot.id %>/edit">Edit</a>
 
 <!-- delete link -->
-<br><br>
+<br /><br />
 <form action="/dining_spots/<%= @dining_spot.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" name="" value="Delete">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" name="" value="Delete" />
 </form>
 <% end %>

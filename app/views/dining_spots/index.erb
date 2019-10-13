@@ -1,13 +1,20 @@
 <!-- INDEX PAGE FOR DINING_SPOTS -->
-
-<% @dining_spots.each do |dining_spot| %>
-<ul>
-  <li>
-    <h6> <a href="/dining_spots/<%= dining_spot.id %>"><%= dining_spot.name %></a> </h6>
-  </li>
-  <li><%= dining_spot.address %></li>
-  <li><a href="<%= dining_spot.website %>"><%= dining_spot.website %></a></li>
-  <p> Added by: <%= dining_spot.user.name %> </p>
-</ul>
-<br>
-<% end %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="card-columns">
+    <% @dining_spots.each do |dining_spot| %>
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="/dining_spots/<%= dining_spot.id %>"><%= dining_spot.name %></a></h5>
+        <p class="card-text"><%= dining_spot.address %></p>
+        <p class="card-text"><small class="text-muted">Added by: <%= dining_spot.user.name %></small></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
