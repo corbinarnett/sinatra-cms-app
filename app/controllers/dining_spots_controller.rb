@@ -51,7 +51,7 @@ class DiningSpotsController < ApplicationController
   patch '/dining_spots/:id' do
     set_dining_spot
     if logged_in?
-      if @dining_spot.user == current_user
+      if @dining_spot.user == current_user && params_empty?
         @dining_spot.update(name: params[:name], address: params[:address], website: params[:website])
         redirect "/dining_spots/#{@dining_spot.id}"
       else
@@ -80,6 +80,10 @@ class DiningSpotsController < ApplicationController
 
   def set_dining_spot
     @dining_spot = DiningSpot.find(params[:id])
+  end
+
+  def params_empty?
+    params[:name] != "" && params[:address] != "" && params[:website] != ""
   end
   
 end
