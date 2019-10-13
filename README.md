@@ -2,7 +2,7 @@
 
 Locale is a MVC CRUD Sinatra web application that allows users to create an account, add their favorite places to eat and drink and view what other users have added as their favorites.
 
-#Installation
+## Installation
 
 If you want to run Locale, feel free to fork and clone this repo.
 
