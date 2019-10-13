@@ -1,19 +1,20 @@
 <!-- SHOW PAGE FOR DINING_SPOTS -->
-
-<div>
-  <h2><%= @dining_spot.name %></h2>
-  <p><%= @dining_spot.address %></p>
-  <p><%= @dining_spot.website %></p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><%= @dining_spot.name %></h1>
+  </div>
 </div>
-
-<!-- edit link -->
-<% if current_user == @dining_spot.user %>
-<a href="/dining_spots/<%= @dining_spot.id %>/edit">Edit</a>
-
-<!-- delete link -->
-<br /><br />
-<form action="/dining_spots/<%= @dining_spot.id %>" method="post">
-  <input type="hidden" name="_method" value="delete" />
-  <input type="submit" name="" value="Delete" />
-</form>
-<% end %>
+<div class="container">
+  <div class="card text-center">
+    <h2><%= @dining_spot.name %></h2>
+    <p><%= @dining_spot.address %></p>
+    <p><%= @dining_spot.website %></p>
+    <% if current_user == @dining_spot.user %>
+    <form action="/dining_spots/<%= @dining_spot.id %>" method="post">
+      <input type="hidden" name="_method" value="delete" />
+      <input class="btn btn-primary btn-lg" type="submit" name="" value="Delete" />
+      <a class="btn btn-primary btn-lg" href="/dining_spots/<%= @dining_spot.id %>/edit" role="button">Edit</a>
+    </form>
+    <% end %>
+  </div>
+</div>
