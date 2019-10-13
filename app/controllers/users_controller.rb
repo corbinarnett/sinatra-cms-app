@@ -8,7 +8,7 @@ class UsersController < ApplicationController #allows the use of methods used in
   post '/login' do 
     @user = User.find_by(email: params[:email]) #find_by expects a key, value pair
 
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id #created :user_id, logs user in
       # binding.pry
       redirect "users/#{@user.id}"
@@ -23,7 +23,7 @@ class UsersController < ApplicationController #allows the use of methods used in
 
   post '/users' do
 
-    if params[:name] != "" && params[:email] != "" && params[:password] != ""
+    if params_empty?
       @user = User.create(params)
       session[:user_id] = @user.id
 

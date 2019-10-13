@@ -1,10 +1,8 @@
 class DiningSpotsController < ApplicationController
   
   get '/dining_spots' do
-    if current_user 
     @user = current_user
     redirect "users/#{current_user.id}"
-    end
   end
 
   get '/dining_spots/explore' do
@@ -21,7 +19,7 @@ class DiningSpotsController < ApplicationController
       redirect '/'
     end
 
-    if params[:name] != "" && params[:address] != "" && params[:website] != ""
+    if params_empty?
       @dining_spot = DiningSpot.create(name: params[:name], address: params[:address], website: params[:website], user_id: current_user.id)
       redirect "/dining_spots/#{@dining_spot.id}"
     else
@@ -80,10 +78,6 @@ class DiningSpotsController < ApplicationController
 
   def set_dining_spot
     @dining_spot = DiningSpot.find(params[:id])
-  end
-
-  def params_empty?
-    params[:name] != "" && params[:address] != "" && params[:website] != ""
   end
   
 end
