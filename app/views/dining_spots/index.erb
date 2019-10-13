@@ -1,14 +1,14 @@
 <!-- INDEX PAGE FOR DINING_SPOTS -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <h1 class="display-4">Explore</h1>
+    <p class="lead">Eat and Drink like a Locale.</p>
   </div>
 </div>
 <div class="container-fluid">
   <div class="card-columns">
     <% @dining_spots.each do |dining_spot| %>
-    <div class="card">
+    <div class="card shadow-md">
       <div class="card-body text-center">
         <h5 class="card-title"><a href="/dining_spots/<%= dining_spot.id %>"><%= dining_spot.name %></a></h5>
         <p class="card-text"><%= dining_spot.address %></p>
