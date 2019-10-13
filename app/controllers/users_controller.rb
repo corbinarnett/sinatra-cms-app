@@ -2,7 +2,7 @@ class UsersController < ApplicationController #allows the use of methods used in
   
  
   get '/login' do #RENDER LOGIN FORM
-    erb :login
+    erb :"/users/login"
   end
 
   post '/login' do 
@@ -11,14 +11,14 @@ class UsersController < ApplicationController #allows the use of methods used in
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id #created :user_id, logs user in
       # binding.pry
-      redirect "users/#{@user.id}"
+      redirect "/users/#{@user.id}"
     else
       redirect "/"
     end
   end
 
   get '/signup' do #RENDER SIGNUP FORM
-    erb :signup
+    erb :"/users/signup"
   end
 
   post '/users' do
@@ -30,7 +30,7 @@ class UsersController < ApplicationController #allows the use of methods used in
       redirect "/users/#{@user.id}"
       else
         #need message telling the user what is wrong
-        redirect '/signup'
+        redirect '/users/signup'
     end
   end
 

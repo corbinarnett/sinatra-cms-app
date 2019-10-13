@@ -2,7 +2,7 @@ class DiningSpotsController < ApplicationController
   
   get '/dining_spots' do
     @user = current_user
-    redirect "users/#{current_user.id}"
+    redirect "/users/#{current_user.id}"
   end
 
   get '/dining_spots/explore' do
@@ -21,7 +21,7 @@ class DiningSpotsController < ApplicationController
 
     if params_empty?
       @dining_spot = DiningSpot.create(name: params[:name], address: params[:address], website: params[:website], user_id: current_user.id)
-      redirect "/dining_spots/#{@dining_spot.id}"
+      redirect "/users/#{current_user.id}"
     else
       redirect "/dining_spots/new"
     end
@@ -39,7 +39,7 @@ class DiningSpotsController < ApplicationController
       if @dining_spot.user == current_user
         erb :"/dining_spots/edit"
       else
-        redirect "users/#{current_user.id}"
+        redirect "/users/#{current_user.id}"
       end
     else
       redirect '/'
@@ -53,7 +53,7 @@ class DiningSpotsController < ApplicationController
         @dining_spot.update(name: params[:name], address: params[:address], website: params[:website])
         redirect "/dining_spots/#{@dining_spot.id}"
       else
-        redirect "users/#{current_user.id}"
+        redirect "/users/#{current_user.id}"
       end
     else
       redirect '/'
