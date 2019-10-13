@@ -1,6 +1,15 @@
 class DiningSpotsController < ApplicationController
   
   get '/dining_spots' do
+    if current_user 
+    @dining_spots = current_user.dining_spots
+    erb :"/users/index"
+    else
+      redirect "users/#{current_user.id}"
+    end
+  end
+
+  get '/dining_spots/explore' do
     @dining_spots = DiningSpot.all
     erb :"/dining_spots/index"
   end
