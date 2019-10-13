@@ -2,8 +2,8 @@ class DiningSpotsController < ApplicationController
   
   get '/dining_spots' do
     if current_user 
-    @dining_spots = current_user.dining_spots
-    erb :"/users/index"
+    @user = current_user
+    erb :"/users/show"
     else
       redirect "users/#{current_user.id}"
     end
