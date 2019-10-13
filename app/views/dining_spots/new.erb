@@ -1,4 +1,4 @@
-<h2>Add a new Spot:</h2>
+<!-- <h2>Add a new Spot:</h2>
 
 <form action="/dining_spots" method="post">
   <label for="name">Name:</label>
@@ -9,4 +9,19 @@
   <input type="text" name="website" id="">
 
   <input type="submit" value="Submit">
+</form> -->
+
+<form class="form-signin" action="/dining_spots" method="post">
+  <h1 class="h3 mb-3 font-weight-normal">Add a new Spot:</h1>
+  <label for="name" class="sr-only">name</label>
+  <input type="name" id="name" name="name" class="form-control" placeholder="Name" required autofocus>
+  <br>
+  <label for="address" class="sr-only">Address</label>
+  <input type="address" id="inputaddress" name="address" class="form-control" placeholder="Address" required>
+  <br>
+  <label for="website" class="sr-only">Website</label>
+  <input type="website" id="inputwebsite" name="website" class="form-control" placeholder="website" required>
+  <br>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Add Destination</button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </form>

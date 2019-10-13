@@ -14,7 +14,7 @@
         <h5 class="card-title"><a href="/dining_spots/<%= dining_spot.id %>"><%= dining_spot.name %></a></h5>
         <p class="card-text"><%= dining_spot.address %></p>
         <p class="card-text"><%= dining_spot.website %></p>
-        <p class="card-text"><small class="text-muted">Added by: <%= dining_spot.user.name %></small></p>
+        <p class="card-text"><small class="text-muted">Added: <%= dining_spot.created_at %></small></p>
       </div>
     </div>
     <% end %>
