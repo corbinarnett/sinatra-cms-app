@@ -27,6 +27,7 @@ class UsersController < ApplicationController #allows the use of methods used in
       @user = User.create(params)
       session[:user_id] = @user.id
 
+      
       redirect "/users/#{@user.id}"
       else
         #need message telling the user what is wrong
